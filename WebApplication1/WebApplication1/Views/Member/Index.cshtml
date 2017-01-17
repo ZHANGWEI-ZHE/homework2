@@ -1,0 +1,54 @@
+﻿@model List<WebApplication1.Models.Member>
+@{
+    ViewBag.name = "Index";
+}
+
+
+<div class="container">
+    <div>
+        <h1>小組名單</h1>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-bordered">
+                <thead></thead>
+                <tbody>
+                    <tr>
+                        <td>ID</td>
+                        <td>職位 </td>
+                        <td>姓名 </td>
+                        <td>座右銘 </td>
+                        <td>
+                            <a class="btn btn-success" href="~/Member/Create">新增</a>
+                        </td>
+
+                    </tr>
+                    @for (var i = 0; i < Model.Count; i++)
+                    {
+                        <tr>
+                            <td>@Model[i].ID</td>
+                            <td>@Model[i].job</td>
+                            <td>@Model[i].name</td>
+                            <td>@Model[i].motto</td>
+                           
+                            <td>
+                                <a class="btn btn-primary" href="~/Member/Update/@Model[i].ID">編輯</a>
+                                <a class="btn btn-danger" href="~/Member/Delete/@Model[i].ID">刪除</a>
+                            </td>
+                        </tr>
+                    }
+
+
+
+                </tbody>
+                <tfoot></tfoot>
+
+            </table>
+
+        </div>
+
+
+    </div>
+</div>
+
